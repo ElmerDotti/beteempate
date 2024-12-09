@@ -1,4 +1,23 @@
 import os
+import subprocess
+import sys
+
+# Instalar automaticamente as dependências necessárias
+def install_dependencies():
+    dependencies = [
+        "streamlit==1.25.0",
+        "pandas==1.5.3",
+        "numpy==1.23.5",
+        "scikit-learn==1.2.3",
+        "xgboost==1.7.6",
+        "matplotlib==3.7.1",
+    ]
+    for package in dependencies:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Executar a instalação das dependências
+install_dependencies()
+
 import streamlit as st
 import pandas as pd
 import numpy as np
