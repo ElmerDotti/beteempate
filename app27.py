@@ -184,7 +184,7 @@ if not training_data.empty and not backtest_data.empty:
     bet_value = 3000  # Valor da aposta em reais
     backtest_data['profit'] = np.where(
         backtest_data['bet_result'] == 1,
-        bet_value * (backtest_data['kDrawOdd'] - 1),  # Lucro quando acerta
+        (bet_value * backtest_data['kDrawOdd']) - bet_value,  # Lucro ajustado conforme solicitado
         -bet_value  # Perda quando erra
     )
 
